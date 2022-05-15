@@ -1,0 +1,22 @@
+https://practice.geeksforgeeks.org/problems/circular-tour/1
+ //the complete circle without exhausting its petrol in between.
+    int tour(petrolPump p[],int n)
+    {
+       //Your code here
+           int required=0,remaining=0;
+      int start=0;
+      for(int i=0;i<n;i++)
+      {
+          remaining=p[i].petrol-p[i].distance+remaining;
+          if(remaining<0)
+          {
+              required+=remaining;
+              start=i+1;
+              remaining=0;
+          }
+      }
+      if(remaining+required>=0)
+      return start;
+      return -1;
+    }
+};
