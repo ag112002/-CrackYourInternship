@@ -1,0 +1,14 @@
+bool vp(string &s,int i, int j , int count){
+        while(i<j){
+            if(s[i]!=s[j]){
+                if(count) return false;
+                return (vp(s,i+1,j,count+1) || vp(s,i,j-1,count+1));
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }
+    bool validPalindrome(string s) {
+        return vp(s,0,s.size()-1,0);
+    }
