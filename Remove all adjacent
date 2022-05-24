@@ -1,0 +1,34 @@
+class Solution {
+public:
+    string removeDuplicates(string s, int k) 
+    { int i,j;
+        vector<pair<char,int>>v;
+            for(i=0 ;i<s.length() ; i++)
+            {
+                if(v.empty())
+                    v.push_back({s[i],1});
+                else if(v.back().first==s[i])
+                {
+                    int x=v.back().second+1;
+                    v.push_back({s[i],x});
+                }
+                else
+                    v.push_back({s[i],1});
+                if(v.back().second==k)
+                {
+                    for(j=1 ; j<=k ; j++)
+                    {
+                        v.pop_back();
+                    }
+                }
+            }
+     string ans="";
+     int a=0;
+     while(v.size()!=a)
+     {
+         ans+=v[a].first;
+         a++;
+     }
+     return ans;
+    }
+};
