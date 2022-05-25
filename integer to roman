@@ -1,0 +1,11 @@
+ string result = "";  //empty string to store result
+        int nums[] = {1000,900,500,400,100,90,50,40,10,9,5,4,1}; //required numbers that represent unique roman notation
+        string romans[] = {"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"}; //romans respective to nums array index
+        
+        for(int i=0; num!=0; i++){   //outer loop, until num becomes zero
+            while(num>=nums[i]){ //inner loop which helps looking up in the array 
+                num-=nums[i]; //subtracting the number at index i from original num
+                result+=romans[i]; //concatenating roman notation to the string result
+            }   
+        }
+        return result;
