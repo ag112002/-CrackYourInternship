@@ -1,0 +1,51 @@
+    ListNode* reverseKGroup(ListNode* head, int k) {
+        
+        if(head->next==NULL)
+            return head;
+        
+        ListNode*ptr=head;
+        int group=0;;
+        while(ptr!=NULL){
+            group++;
+            ptr=ptr->next;
+        }
+        
+        int elementgroup=group/k;
+        int countele=k;
+        
+        ListNode* dummy=new   ListNode(-1,head);
+          ListNode* itr=dummy;
+        ptr=head;
+         
+          ListNode* prev=NULL;
+          ListNode*ahead=NULL;
+                
+          ListNode*begin=NULL;
+        
+        while(elementgroup){
+            begin=ptr;
+            prev=NULL;
+            ahead=NULL;
+            while(countele){
+                ahead=ptr->next;
+                ptr->next=prev;
+                prev=ptr;
+                ptr=ahead;
+                countele--;
+            }
+             countele=k;
+        itr->next=prev;
+        itr=begin;
+        elementgroup--;
+        
+        }
+        
+       if(ptr!=NULL)
+           begin->next=ptr;
+        return dummy->next;
+
+                
+
+                
+
+    }
