@@ -1,0 +1,26 @@
+     ListNode* l1=new ListNode(0);
+        ListNode* l2=new ListNode(0);
+        
+        ListNode*ptr1=l1;
+        ListNode*ptr2=l2;
+        
+        while(head!=NULL){
+            if(head->val<x){
+                ptr1->next=head;
+                ptr1=ptr1->next;
+            }
+            
+            else{
+                ptr2->next=head;
+                ptr2=ptr2->next;
+                
+            }
+            head=head->next;
+        }
+        
+        ptr1->next=l2->next;
+        ptr2->next=NULL;
+        
+        return l1->next;
+        
+    }
